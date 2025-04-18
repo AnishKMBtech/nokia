@@ -10,42 +10,54 @@
     <div class="dashboard">
         <!-- Top Header -->
         <div class="main-header">
-            <img src="nokia_logo.png" alt="Nokia Logo" class="nokia-logo"> 
+            <img src="nokia_logo.png" alt="Nokia Logo" class="nokia-logo">
             <span class="title">SMART SCREW DRIVER SYSTEM</span>
-            <span class="datetime" id="datetime"></span>
         </div>
 
-        <!-- Info Boxes and Screw Details Row -->
-        <div class="info-details-row">
-            <!-- Left Info Boxes -->
-            <div class="info-boxes-left">
-                <div class="info-box large blue">PALETTE ID</div>
-                <div class="info-box large grey">CHASSIS ID</div>
-                <div class="info-box small grey">RESOURCE<br>MAC-LINE02</div>
-                <div class="info-box small blue">TYPE<br>DEPRAG-AS712</div>
-            </div>
+        <!-- Resource/Type/Model Row -->
+        <div class="resource-model-row">
+            <span>RESOURCE: MAC-LINE02</span>
+            <span>TYPE: DEPRAG-AS712</span>
+            <span>MODEL: ARCA</span>
+        </div>
 
-            <!-- Center Screw Count -->
-            <div class="screw-count-container">
-                <div class="donut-chart" id="donutChart">
-                    <span class="chart-text" id="chartText">0/19</span>
+        <!-- ID Input & Controls Row -->
+        <div class="id-controls-row">
+            <div class="id-input-group">
+                <div class="input-group">
+                    <label for="stationId">STATION ID</label>
+                    <input type="text" id="stationId">
                 </div>
-                <div class="chart-label">SCREW COUNT</div>
+                <div class="input-group">
+                    <label for="paletteId">PALETTE ID</label>
+                    <input type="text" id="paletteId">
+                </div>
+                <div class="input-group">
+                    <label for="chassisId">CHASSIS ID</label>
+                    <input type="text" id="chassisId">
+                </div>
             </div>
+            <div class="controls-group">
+                 <button class="btn-control start" id="startBtn">START</button>
+                 <div class="status-display screw-driver" id="screwDriverStatus">SCREW DRIVER</div>
+                 <div class="status-display plcm-status" id="plcmStatus">PLCM STATUS</div>
+            </div>
+        </div>
 
-            <!-- Right Screw Details -->
-            <div class="screw-details-right">
-                <div class="detail-box">
-                    <label>SCREW ID:</label>
-                    <span id="currentScrewId">-</span>
+        <!-- Present Values Row -->
+        <div class="present-values-row">
+            <div class="present-values-group">
+                <div class="input-group present">
+                    <label for="presentScrewId">PRESENT SCREW ID:</label>
+                    <input type="number" id="presentScrewId" value="-" readonly>
                 </div>
-                <div class="detail-box">
-                    <label>TORQUE</label>
-                    <span id="currentTorque">-</span>
+                <div class="input-group present">
+                    <label for="presentAngle">PRESENT ANGLE:</label>
+                    <input type="text" id="presentAngle" value="-" readonly>
                 </div>
-                <div class="detail-box">
-                    <label>ANGLE</label>
-                    <span id="currentAngle">-</span>
+                <div class="input-group present">
+                    <label for="presentTorque">PRESENT TORQUE:</label>
+                    <input type="text" id="presentTorque" value="-" readonly>
                 </div>
             </div>
         </div>
@@ -57,7 +69,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th rowspan="2">Scr count</th>
+                            <th rowspan="2">Screw Count</th>
                             <th colspan="3">Angle</th>
                             <th colspan="3">Torque</th>
                         </tr>
@@ -81,25 +93,11 @@
             </div>
         </div>
 
-        <!-- Controls Row -->
-        <div class="controls-row">
-            <button class="btn-control start" id="startBtn">START</button>
-            <button class="btn-control stop" id="stopBtn">STOP</button>
-            <div class="status-indicator-box screw-driver">
-                <span>SCREW DRIVER</span>
-                <div class="indicator-light" id="screwDriverStatus"></div>
-            </div>
-            <div class="status-indicator-box plcm-status">
-                <span>PLCM STATUS</span>
-                <div class="indicator-light" id="plcmStatus"></div>
-            </div>
-        </div>
-
         <!-- Action Buttons Row -->
         <div class="action-buttons-row">
             <button class="btn-action">ANGLE PATTERN</button>
             <button class="btn-action">TORQUE PATTERN</button>
-            <button class="btn-action">GENERATE REPORT</button>
+            <button class="btn-action" id="generateReportBtn">GENERATE REPORT</button>
         </div>
 
     </div>
