@@ -3,29 +3,29 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 10px;
-    background-color: #e0e0e0; /* Light grey background */
+    background-color: #f0f0f0; /* Lighter grey background */
     color: #333;
 }
 
 .dashboard {
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 0; /* Remove padding, handle spacing internally */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     max-width: 1400px; /* Adjust as needed */
     margin: auto;
+    overflow: hidden; /* Contain child margins/paddings */
 }
 
 /* Main Header */
 .main-header {
     background-color: #001f5f; /* Dark Nokia Blue */
     color: white;
-    padding: 8px 15px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
-    border-radius: 5px 5px 0 0;
-    margin-bottom: 10px;
+    /* Removed border-radius and margin-bottom */
 }
 
 .nokia-logo {
@@ -40,139 +40,210 @@ body {
     text-align: center;
 }
 
-.datetime {
-    font-size: 0.9em;
-}
-
-/* Info Boxes and Screw Details Row */
-.info-details-row {
+/* Resource/Model Row */
+.resource-model-row {
     display: flex;
     justify-content: space-between;
-    align-items: stretch; /* Make items same height */
-    gap: 15px;
-    margin-bottom: 10px;
-}
-
-/* Left Info Boxes */
-.info-boxes-left {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    flex-basis: 30%; /* Adjust width */
-}
-
-.info-box {
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
+    padding: 5px 20px;
+    background-color: #e9ecef;
+    font-size: 0.9em;
     font-weight: bold;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    line-height: 1.3;
+    color: #555;
+    border-bottom: 1px solid #ccc;
 }
 
-.info-box.large { font-size: 1.1em; min-height: 50px; }
-.info-box.small { font-size: 0.9em; min-height: 40px; }
-.info-box.blue { background-color: #0055a4; }
-.info-box.grey { background-color: #a0a0a0; color: #333; }
-
-/* Center Screw Count */
-.screw-count-container {
-    flex-basis: 20%; /* Adjust width */
+/* ID Input Row */
+.id-input-row {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align items to the start */
+    gap: 30px; /* Space between input groups */
+    padding: 15px 20px;
     background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.donut-chart {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: conic-gradient(#0055a4 0% 0%, #e0e0e0 0% 100%); /* Initial state */
-    display: flex;
-    justify-content: center;
+    border-bottom: 1px solid #ccc;
     align-items: center;
-    position: relative;
-    margin-bottom: 5px;
 }
 
-.donut-chart::before { /* Inner circle to make it a donut */
-    content: '';
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    background: #fff;
-    border-radius: 50%;
+/* ID Input & Controls Row */
+.id-controls-row {
+    display: flex;
+    justify-content: space-between; /* Pushes ID inputs and controls apart */
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    gap: 20px; /* Add gap between the two main groups */
 }
 
-.chart-text {
-    position: relative; /* To appear above the ::before pseudo-element */
-    z-index: 1;
-    font-size: 1.2em;
+.id-input-group {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between individual ID input groups */
+}
+
+/* Controls Group (already exists, ensure alignment) */
+.controls-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Present Values Row */
+.present-values-row {
+    display: flex;
+    justify-content: flex-start; /* Align group to the start */
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Present Values Group (already exists, ensure alignment) */
+.present-values-group {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Increased gap between present value items */
+}
+
+/* Adjust input group label/input alignment if needed */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group label {
+    /* Styles from previous update */
     font-weight: bold;
-}
-
-.chart-label {
+    color: #333;
     font-size: 0.9em;
-    font-weight: bold;
-    color: #555;
+    background-color: #0055a4;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
 }
 
-/* Right Screw Details */
-.screw-details-right {
-    flex-basis: 45%; /* Adjust width */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    background-color: #f0f5fa;
-    border: 1px solid #add8e6;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.detail-box {
-    background-color: #fff;
+.input-group input[type="text"],
+.input-group input[type="number"] {
+     /* Styles from previous update */
+    padding: 5px 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-}
-
-.detail-box label {
-    display: block;
+    border-radius: 4px;
     font-size: 0.9em;
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 5px;
+    min-width: 150px;
 }
 
-.detail-box span {
-    display: block;
-    font-size: 1.8em;
+.input-group.present label {
+    /* Styles from previous update */
+    background-color: transparent;
+    color: #333;
+    padding: 0;
     font-weight: bold;
-    color: #0055a4;
+    font-size: 0.9em;
+}
+
+.input-group.present input {
+    /* Styles from previous update */
+    font-weight: bold;
+    background-color: #e9ecef;
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Controls and Present Values Row */
+.controls-present-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    gap: 20px;
+}
+
+.controls-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.present-values-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.input-group.present label {
+    background-color: transparent; /* No background for present value labels */
+    color: #333;
+    padding: 0;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.input-group.present input {
+    font-weight: bold;
+    background-color: #e9ecef; /* Light grey background for readonly inputs */
+    min-width: 80px; /* Smaller width for present values */
+    text-align: right;
+}
+
+.btn-control.start {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn-control.start:hover {
+    background-color: #218838;
+}
+
+/* Added style for stop state */
+.btn-control.stop {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+.btn-control.stop:hover {
+    background-color: #c82333;
+}
+
+.status-display {
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: center;
+    border: 1px solid transparent;
+    background-color: #6c757d; /* Default grey */
+    color: white;
+    min-width: 120px; /* Ensure consistent width */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.status-display.active {
+    background-color: #28a745; /* Green when active */
+    border-color: #1e7e34;
 }
 
 /* Table and Image Row */
 .table-image-row {
     display: flex;
     gap: 15px;
-    margin-bottom: 10px;
-    min-height: 450px; /* Adjust as needed */
+    padding: 15px 20px; /* Add padding */
+    background-color: #fff; /* White background for this section */
+    min-height: 400px; /* Adjust as needed */
 }
 
 /* Table */
 .table-container {
     flex: 1; /* Take more space */
-    max-height: 450px; /* Match row height */
+    max-height: 400px; /* Match row height */
     overflow-y: auto;
     border: 1px solid #ccc;
     background-color: #fff;
@@ -207,12 +278,12 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr.highlight-ok {
-    background-color: #90ee90; /* Light Green */
+    background-color: #90ee90 !important; /* Light Green - use important to override nth-child */
     font-weight: bold;
 }
 
 tbody tr.highlight-nok {
-    background-color: #f08080; /* Light Red */
+    background-color: #f08080 !important; /* Light Red - use important */
     font-weight: bold;
 }
 
@@ -264,13 +335,6 @@ tbody tr.highlight-nok {
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5); /* Make text more readable */
 }
 
-.screw-marker.highlighted {
-    background-color: rgba(128, 0, 128, 0.9); /* Darker Purple */
-    transform: translate(-50%, -50%) scale(1.4);
-    border: 3px solid #ffcc00; /* Gold border */
-    z-index: 10;
-}
-
 /* New marker status colors */
 .screw-marker.processing {
     background-color: rgba(255, 255, 0, 0.8); /* Yellow */
@@ -289,100 +353,32 @@ tbody tr.highlight-nok {
     border: 2px solid #b22222;
 }
 
-/* Controls Row */
-.controls-row {
-    display: flex;
-    justify-content: center;
-    align-items: stretch; /* Make items same height */
-    gap: 20px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-top: 1px solid #ccc;
-    margin-bottom: 10px; /* Add margin before action buttons */
-}
-
 /* Action Buttons Row */
 .action-buttons-row {
     display: flex;
-    justify-content: center;
-    gap: 30px; /* More space between action buttons */
-    padding: 15px 10px;
+    justify-content: flex-start; /* Align buttons to the start */
+    gap: 15px;
+    padding: 15px 20px;
     background-color: #e9ecef; /* Light grey background */
     border-top: 1px solid #ccc;
-    border-radius: 0 0 5px 5px; /* Add bottom radius here */
 }
 
 .btn-action {
-    padding: 10px 20px;
+    padding: 8px 15px;
     border: 1px solid #0055a4;
-    border-radius: 5px;
-    background-color: #f8f9fa;
-    color: #0055a4;
+    border-radius: 4px;
+    background-color: #0055a4; /* Blue background */
+    color: white;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: bold;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-action:hover {
-    background-color: #0055a4;
-    color: white;
+    background-color: #003f7e; /* Darker blue */
+    border-color: #003f7e;
 }
 
-.btn-control {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px; /* Pill shape */
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: white;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.btn-control:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-.btn-control.start { background-color: #28a745; /* Green */ }
-.btn-control.start:hover { background-color: #218838; }
-.btn-control.stop { background-color: #dc3545; /* Red */ }
-.btn-control.stop:hover { background-color: #c82333; }
-
-.status-indicator-box {
-    background-color: #d8d8d8;
-    border: 1px solid #bbb;
-    border-radius: 5px;
-    padding: 8px 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 150px; /* Ensure minimum width */
-}
-
-.status-indicator-box span {
-    font-size: 0.9em;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-.indicator-light {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #bbb; /* Off state */
-    border: 2px solid #888;
-    transition: background-color 0.3s ease;
-}
-
-.indicator-light.active {
-    background-color: #32cd32; /* Lime Green */
-    border-color: #228b22;
-    box-shadow: 0 0 10px rgba(50, 205, 50, 0.7);
-}
-
-.status-indicator-box.screw-driver { background-color: #cce5ff; border-color: #b8daff; } /* Light blue background */
-.status-indicator-box.plcm-status { background-color: #e2e3e5; border-color: #d6d8db; } /* Light grey background */
+/* Remove old styles no longer used */
+/* .info-details-row, .info-boxes-left, .screw-count-container, .screw-details-right, .controls-row, .status-indicator-box, .indicator-light are replaced or restyled */
