@@ -1,0 +1,388 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #e0e0e0; /* Light grey background */
+    color: #333;
+}
+
+.dashboard {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 1400px; /* Adjust as needed */
+    margin: auto;
+}
+
+/* Main Header */
+.main-header {
+    background-color: #001f5f; /* Dark Nokia Blue */
+    color: white;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 10px;
+}
+
+.nokia-logo {
+    height: 35px;
+    margin-right: 20px;
+}
+
+.title {
+    font-size: 1.6em;
+    font-weight: bold;
+    flex-grow: 1; /* Pushes datetime to the right */
+    text-align: center;
+}
+
+.datetime {
+    font-size: 0.9em;
+}
+
+/* Info Boxes and Screw Details Row */
+.info-details-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Make items same height */
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Left Info Boxes */
+.info-boxes-left {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    flex-basis: 30%; /* Adjust width */
+}
+
+.info-box {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.3;
+}
+
+.info-box.large { font-size: 1.1em; min-height: 50px; }
+.info-box.small { font-size: 0.9em; min-height: 40px; }
+.info-box.blue { background-color: #0055a4; }
+.info-box.grey { background-color: #a0a0a0; color: #333; }
+
+/* Center Screw Count */
+.screw-count-container {
+    flex-basis: 20%; /* Adjust width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.donut-chart {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(#0055a4 0% 0%, #e0e0e0 0% 100%); /* Initial state */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.donut-chart::before { /* Inner circle to make it a donut */
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.chart-text {
+    position: relative; /* To appear above the ::before pseudo-element */
+    z-index: 1;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.chart-label {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Right Screw Details */
+.screw-details-right {
+    flex-basis: 45%; /* Adjust width */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background-color: #f0f5fa;
+    border: 1px solid #add8e6;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.detail-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.detail-box label {
+    display: block;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.detail-box span {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #0055a4;
+}
+
+/* Table and Image Row */
+.table-image-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    min-height: 450px; /* Adjust as needed */
+}
+
+/* Table */
+.table-container {
+    flex: 1; /* Take more space */
+    max-height: 450px; /* Match row height */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #e9ecef;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 6px 8px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+th {
+    font-weight: bold;
+    background-color: #d0d0d0;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr.highlight-ok {
+    background-color: #90ee90; /* Light Green */
+    font-weight: bold;
+}
+
+tbody tr.highlight-nok {
+    background-color: #f08080; /* Light Red */
+    font-weight: bold;
+}
+
+/* Image */
+.image-container {
+    flex-basis: 40%; /* Adjust width */
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #fff;
+    display: flex; /* Center image */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide parts of image if needed */
+}
+
+.hardware-image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Scale image while preserving aspect ratio */
+}
+
+#screw-markers-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.screw-marker {
+    position: absolute;
+    width: 22px; /* Slightly larger */
+    height: 22px;
+    border-radius: 50%;
+    background-color: rgba(128, 0, 128, 0.7); /* Purple */
+    border: 2px solid white;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 6px rgba(0,0,0,0.6);
+    transition: transform 0.2s ease, background-color 0.2s ease, border 0.2s ease;
+    display: flex; /* Added for centering text */
+    justify-content: center; /* Added for centering text */
+    align-items: center; /* Added for centering text */
+    color: white; /* Added for text color */
+    font-size: 10px; /* Added for text size */
+    font-weight: bold; /* Added for text weight */
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5); /* Make text more readable */
+}
+
+.screw-marker.highlighted {
+    background-color: rgba(128, 0, 128, 0.9); /* Darker Purple */
+    transform: translate(-50%, -50%) scale(1.4);
+    border: 3px solid #ffcc00; /* Gold border */
+    z-index: 10;
+}
+
+/* New marker status colors */
+.screw-marker.processing {
+    background-color: rgba(255, 255, 0, 0.8); /* Yellow */
+    border: 2px solid #cca300;
+    transform: translate(-50%, -50%) scale(1.4);
+    z-index: 10;
+}
+
+.screw-marker.success {
+    background-color: rgba(0, 128, 0, 0.8); /* Green */
+    border: 2px solid #006400;
+}
+
+.screw-marker.fail {
+    background-color: rgba(255, 0, 0, 0.8); /* Red */
+    border: 2px solid #b22222;
+}
+
+/* Controls Row */
+.controls-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Make items same height */
+    gap: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+    margin-bottom: 10px; /* Add margin before action buttons */
+}
+
+/* Action Buttons Row */
+.action-buttons-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* More space between action buttons */
+    padding: 15px 10px;
+    background-color: #e9ecef; /* Light grey background */
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 5px 5px; /* Add bottom radius here */
+}
+
+.btn-action {
+    padding: 10px 20px;
+    border: 1px solid #0055a4;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    color: #0055a4;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-action:hover {
+    background-color: #0055a4;
+    color: white;
+}
+
+.btn-control {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px; /* Pill shape */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-control:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.btn-control.start { background-color: #28a745; /* Green */ }
+.btn-control.start:hover { background-color: #218838; }
+.btn-control.stop { background-color: #dc3545; /* Red */ }
+.btn-control.stop:hover { background-color: #c82333; }
+
+.status-indicator-box {
+    background-color: #d8d8d8;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    padding: 8px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px; /* Ensure minimum width */
+}
+
+.status-indicator-box span {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.indicator-light {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #bbb; /* Off state */
+    border: 2px solid #888;
+    transition: background-color 0.3s ease;
+}
+
+.indicator-light.active {
+    background-color: #32cd32; /* Lime Green */
+    border-color: #228b22;
+    box-shadow: 0 0 10px rgba(50, 205, 50, 0.7);
+}
+
+.status-indicator-box.screw-driver { background-color: #cce5ff; border-color: #b8daff; } /* Light blue background */
+.status-indicator-box.plcm-status { background-color: #e2e3e5; border-color: #d6d8db; } /* Light grey background */
