@@ -1,0 +1,716 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #f0f0f0; /* Lighter grey background */
+    color: #333;
+}
+
+.dashboard {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 0; /* Remove padding, handle spacing internally */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 1400px; /* Adjust as needed */
+    margin: auto;
+    overflow: hidden; /* Contain child margins/paddings */
+    
+    /* Add hardware acceleration */
+    transform: translateZ(0);
+    will-change: transform;
+    
+    /* Force a stacking context to prevent z-index issues */
+    isolation: isolate;
+}
+
+/* Main Header */
+.main-header {
+    background-color: #001f5f; /* Dark Nokia Blue */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    /* Removed border-radius and margin-bottom */
+}
+
+.nokia-logo {
+    height: 35px;
+    margin-right: 20px;
+}
+
+.title {
+    font-size: 1.6em;
+    font-weight: bold;
+    flex-grow: 1; /* Pushes datetime to the right */
+    text-align: center;
+}
+
+/* Resource/Model Row */
+.resource-model-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    background-color: #e9ecef;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+}
+
+/* ID Input Row */
+.id-input-row {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    gap: 30px; /* Space between input groups */
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+}
+
+/* ID Input & Controls Row */
+.id-controls-row {
+    display: flex;
+    justify-content: space-between; /* Pushes ID inputs and controls apart */
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    gap: 20px; /* Add gap between the two main groups */
+}
+
+.id-input-group {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between individual ID input groups */
+    flex-wrap: wrap;
+}
+
+/* Controls Group (already exists, ensure alignment) */
+.controls-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Present Values Row */
+.present-values-row {
+    display: flex;
+    justify-content: flex-start; /* Align group to the start */
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Present Values Group (already exists, ensure alignment) */
+.present-values-group {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Increased gap between present value items */
+}
+
+/* Adjust input group label/input alignment if needed */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group label {
+    /* Styles from previous update */
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9em;
+    background-color: #0055a4;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"] {
+     /* Styles from previous update */
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+    min-width: 150px;
+}
+
+.input-group.present label {
+    /* Styles from previous update */
+    background-color: transparent;
+    color: #333;
+    padding: 0;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.input-group.present input {
+    /* Styles from previous update */
+    font-weight: bold;
+    background-color: #e9ecef;
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Controls and Present Values Row */
+.controls-present-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    gap: 20px;
+}
+
+.controls-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.present-values-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.input-group.present label {
+    background-color: transparent; /* No background for present value labels */
+    color: #333;
+    padding: 0;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.input-group.present input {
+    font-weight: bold;
+    background-color: #e9ecef; /* Light grey background for readonly inputs */
+    min-width: 80px; /* Smaller width for present values */
+    text-align: right;
+}
+
+.btn-control.start {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn-control.start:hover {
+    background-color: #218838;
+}
+
+/* Added style for stop state */
+.btn-control.stop {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+.btn-control.stop:hover {
+    background-color: #c82333;
+}
+
+.status-display {
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: center;
+    border: 1px solid transparent;
+    background-color: #6c757d; /* Default grey */
+    color: white;
+    min-width: 120px; /* Ensure consistent width */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.status-display.active {
+    background-color: #28a745; /* Green when active */
+    border-color: #1e7e34;
+}
+
+/* Add styling for loading state */
+.status-display.loading {
+    background-color: #ffc107; /* Yellow/amber loading color */
+    color: #333;
+    animation: pulse 1.5s infinite;
+}
+
+/* History mode indicators */
+.status-display.history-mode {
+    background-color: #ff9800;
+    color: white;
+    position: relative;
+}
+
+.status-display.history-mode::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 10px,
+        rgba(0, 0, 0, 0) 10px,
+        rgba(0, 0, 0, 0) 20px
+    );
+}
+
+.history-warning {
+    display: none;
+    width: 100%;
+    margin-top: 5px;
+    padding: 4px 10px;
+    background-color: #fff3cd;
+    color: #856404;
+    border-radius: 4px;
+    font-size: 0.85em;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+/* Make button disabled style more visible */
+.btn-control:disabled {
+    background-color: #6c757d;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Table and Image Row */
+.table-image-row {
+    display: flex;
+    gap: 15px;
+    padding: 15px 20px; /* Add padding */
+    background-color: #fff; /* White background for this section */
+    min-height: 400px; /* Adjust as needed */
+}
+
+/* Table */
+.table-container {
+    flex: 1; /* Take more space */
+    max-height: 400px; /* Match row height */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #e9ecef;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 6px 8px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+th {
+    font-weight: bold;
+    background-color: #d0d0d0;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr.highlight-ok {
+    background-color: rgba(28, 171, 33, 0.3); /* Brighter green for pass */
+    transition: background-color 0.3s ease;
+    border-left: 4px solid #1ea322; /* Green left border for emphasis */
+}
+
+tbody tr.highlight-nok {
+    background-color: rgba(255, 25, 9, 0.3); /* Brighter red for fail */
+    transition: background-color 0.3s ease;
+    border-left: 4px solid #F44336; /* Red left border for emphasis */
+}
+
+/* Add hover effect to table rows */
+#screwDataTableBody tr:hover {
+    filter: brightness(0.95);
+}
+
+/* Ensure table looks clean and modern */
+.table-container table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.table-container th, 
+.table-container td {
+    padding: 8px 12px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.table-container th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Add subtle animation when rows get updated */
+@keyframes highlight-row {
+    0% { background-color: rgba(255, 193, 7, 0.5); }
+    100% { background-color: inherit; }
+}
+
+.status-changed {
+    animation: highlight-row 0.8s ease-out;
+}
+
+/* Smooth animations for data updates */
+@keyframes highlight-update {
+    0% { background-color: rgba(255, 193, 7, 0.5); }
+    100% { background-color: transparent; }
+}
+
+@keyframes fade-transition {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.cell-updating {
+    animation: highlight-update 0.8s ease-out;
+}
+
+.value-updating {
+    animation: highlight-update 0.6s ease-out;
+}
+
+.status-changed {
+    transition: background-color 0.5s ease-in-out;
+}
+
+.updated {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Make table rows fade in smoothly */
+#screwDataTableBody {
+    transition: opacity 0.2s ease-in-out;
+}
+
+#screwDataTableBody tr {
+    transition: background-color 0.2s ease-out;
+    will-change: background-color;
+}
+
+/* Keep marker transitions smooth */
+.screw-marker {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    z-index: 100;
+    
+    /* Add hardware acceleration */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform, opacity, background-color;
+    
+    /* Smooth transitions */
+    transition: background-color 0.15s ease-out, 
+                transform 0.15s ease-out, 
+                opacity 0.15s ease-out;
+}
+
+.screw-marker.updated {
+    animation: marker-pulse 0.8s ease-out;
+}
+
+.screw-marker.success {
+    background-color: #4CAF50; /* Bright green for pass */
+    box-shadow: 0 0 6px rgba(76, 175, 80, 0.8);
+}
+
+.screw-marker.fail {
+    background-color: #F44336; /* Bright red for fail */
+    box-shadow: 0 0 6px rgba(244, 67, 54, 0.8);
+}
+
+.screw-marker.processing {
+    background-color: #FFC107; /* Amber for processing */
+    animation: pulse 1s infinite;
+}
+
+.screw-marker.transition {
+    opacity: 0.3;
+    transform: scale(0.9);
+}
+
+@keyframes marker-pulse {
+    0% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+/* Image */
+.image-container {
+    flex-basis: 40%; /* Adjust width */
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #fff;
+    display: flex; /* Center image */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide parts of image if needed */
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    
+    /* Hardware acceleration */
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.hardware-image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Scale image while preserving aspect ratio */
+}
+
+#screw-markers-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.screw-marker {
+    position: absolute;
+    width: 22px; /* Slightly larger */
+    height: 22px;
+    border-radius: 50%;
+    background-color: rgba(128, 0, 128, 0.7); /* Purple */
+    border: 2px solid white;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 6px rgba(0,0,0,0.6);
+    transition: transform 0.2s ease, background-color 0.2s ease, border 0.2s ease;
+    display: flex; /* Added for centering text */
+    justify-content: center; /* Added for centering text */
+    align-items: center; /* Added for centering text */
+    color: white; /* Added for text color */
+    font-size: 10px; /* Added for text size */
+    font-weight: bold; /* Added for text weight */
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5); /* Make text more readable */
+}
+
+/* New marker status colors */
+.screw-marker.processing {
+    background-color: rgba(255, 255, 0, 0.8); /* Yellow */
+    border: 2px solid #cca300;
+    transform: translate(-50%, -50%) scale(1.4);
+    z-index: 10;
+}
+
+.screw-marker.success {
+    background-color: rgba(0, 128, 0, 0.8); /* Green */
+    border: 2px solid #006400;
+}
+
+.screw-marker.fail {
+    background-color: rgba(255, 0, 0, 0.8); /* Red */
+    border: 2px solid #b22222;
+}
+
+/* Add cycle label to image overlay */
+.cycle-overlay-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.cycle-overlay-label.present {
+    background-color: rgba(0, 85, 164, 0.8);
+}
+
+.cycle-overlay-label.previous {
+    background-color: rgba(255, 125, 0, 0.8);
+}
+
+/* Improved cycle navigation */
+.cycle-navigation {
+    display: none !important;
+}
+
+.history-warning {
+    display: none !important;
+}
+
+.cycle-counter {
+    display: none !important;
+}
+
+/* Style for minimal cycle navigation */
+.minimal-cycle-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.minimal-cycle-navigation small {
+    font-size: 0.8em;
+    color: #666;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.btn-cycle {
+    padding: 8px 15px;
+    border: 1px solid #0055a4;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #0055a4;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.15s ease-out;
+    will-change: transform, background-color, color;
+}
+
+.btn-cycle:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-cycle.active {
+    background-color: #0055a4;
+    color: white;
+}
+
+.btn-cycle:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Button active effect */
+.btn-cycle:active {
+    transform: translateY(1px);
+}
+
+/* Action Buttons Row */
+.action-buttons-row {
+    display: flex;
+    justify-content: flex-start; /* Align buttons to the start */
+    gap: 15px;
+    padding: 15px 20px;
+    background-color: #e9ecef; /* Light grey background */
+    border-top: 1px solid #ccc;
+}
+
+.btn-action {
+    padding: 8px 15px;
+    border: 1px solid #0055a4;
+    border-radius: 4px;
+    background-color: #0055a4; /* Blue background */
+    color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-action:hover {
+    background-color: #003f7e; /* Darker blue */
+    border-color: #003f7e;
+}
+
+/* Style for the refresh button */
+.btn-refresh {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+    vertical-align: middle;
+}
+
+.btn-refresh:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-refresh:active {
+    transform: scale(0.95);
+}
+
+/* Add visual feedback for read-only inputs */
+input[readonly] {
+    background-color: #f9f9f9;
+    cursor: default;
+}
+
+/* Remove old styles no longer used */
+/* .info-details-row, .info-boxes-left, .screw-count-container, .screw-details-right, .controls-row, .status-indicator-box, .indicator-light are replaced or restyled */
+
+/* Use hardware acceleration for smoother animations */
+.screw-marker, 
+input.value-updating {
+    will-change: transform, opacity, background-color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Fix for input fields to prevent flickering on update */
+input[readonly] {
+    transition: background-color 0.2s ease;
+    will-change: background-color;
+}
