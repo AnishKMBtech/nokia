@@ -1,0 +1,988 @@
+/* General Styles */
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    aspect-ratio: 4/3;
+    background: #fff;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hardware-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    aspect-ratio: 4/3;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.screw-marker {
+    position: absolute;
+    width: 2.7vw;
+    height: 2.7vw;
+    min-width: 16px;
+    min-height: 16px;
+    max-width: 28px;
+    max-height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1vw;
+    min-font-size: 10px;
+    max-font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    border: 2px solid;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: #fff;
+}
+
+@media (max-width: 600px) {
+    .screw-marker {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+        min-width: 12px;
+        min-height: 12px;
+        max-width: 18px;
+        max-height: 18px;
+    }
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Lighter grey background */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Header */
+.main-header {
+    background-color: #001f5f; /* Dark Nokia Blue */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    /* Removed border-radius and margin-bottom */
+}
+
+.nokia-logo {
+    height: 35px;
+    margin-right: 20px;
+}
+
+.title {
+    font-size: 1.6em;
+    font-weight: bold;
+    flex-grow: 1; /* Pushes datetime to the right */
+    text-align: center;
+}
+
+/* Resource/Model Row */
+.resource-model-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    background-color: #e9ecef;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+/* ID Input Row */
+.id-input-row {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    gap: 30px; /* Space between input groups */
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+}
+
+/* ID Input & Controls Row */
+.id-controls-row {
+    display: flex;
+    justify-content: space-between; /* Pushes ID inputs and controls apart */
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    gap: 20px; /* Add gap between the two main groups */
+    flex-shrink: 0;
+}
+
+.id-input-group {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between individual ID input groups */
+    flex-wrap: wrap;
+}
+
+/* Controls Group (already exists, ensure alignment) */
+.controls-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Present Values Row */
+.present-values-row {
+    display: flex;
+    justify-content: flex-start; /* Align group to the start */
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+/* Present Values Group (already exists, ensure alignment) */
+.present-values-group {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Increased gap between present value items */
+}
+
+/* Adjust input group label/input alignment if needed */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group label {
+    /* Styles from previous update */
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9em;
+    background-color: #0055a4;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"] {
+     /* Styles from previous update */
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+    min-width: 150px;
+}
+
+.input-group.present label {
+    /* Styles from previous update */
+    background-color: transparent;
+    color: #333;
+    padding: 0;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.input-group.present input {
+    /* Styles from previous update */
+    font-weight: bold;
+    background-color: #e9ecef;
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Controls and Present Values Row */
+.controls-present-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    gap: 20px;
+}
+
+.controls-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.present-values-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.input-group.present label {
+    background-color: transparent; /* No background for present value labels */
+    color: #333;
+    padding: 0;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.input-group.present input {
+    font-weight: bold;
+    background-color: #e9ecef; /* Light grey background for readonly inputs */
+    min-width: 80px; /* Smaller width for present values */
+    text-align: right;
+}
+
+.btn-control.start,
+.btn-control.stop {
+    /* Ensure consistent size regardless of text */
+    min-width: 100px; /* Adjust as needed */
+    text-align: center;
+}
+
+.btn-control.start {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn-control.start:hover {
+    background-color: #218838;
+}
+
+/* Added style for stop state */
+.btn-control.stop {
+    /* Inherit general button styles */
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    /* Specific stop styles */
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+.btn-control.stop:hover {
+    background-color: #c82333;
+}
+
+.status-display {
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: center;
+    border: 1px solid transparent;
+    background-color: #6c757d; /* Default grey */
+    color: white;
+    min-width: 120px; /* Ensure consistent width */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.status-display.active {
+    background-color: #28a745; /* Green when active */
+    border-color: #1e7e34;
+}
+
+/* Add styling for loading state */
+.status-display.loading {
+    background-color: #ffc107; /* Yellow/amber loading color */
+    color: #333;
+    animation: pulse 1.5s infinite;
+}
+
+/* History mode indicators */
+.status-display.history-mode {
+    background-color: #ff9800;
+    color: white;
+    position: relative;
+}
+
+.status-display.history-mode::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 10px,
+        rgba(0, 0, 0, 0) 10px,
+        rgba(0, 0, 0, 0) 20px
+    );
+}
+
+.history-warning {
+    display: none;
+    width: 100%;
+    margin-top: 5px;
+    padding: 4px 10px;
+    background-color: #fff3cd;
+    color: #856404;
+    border-radius: 4px;
+    font-size: 0.85em;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+/* Make button disabled style more visible */
+.btn-control:disabled {
+    background-color: #6c757d;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Table and Image Row */
+.table-image-row {
+    display: flex;
+    gap: 15px;
+    padding: 15px 20px; /* Add padding */
+    background-color: #fff; /* White background for this section */
+    min-height: 400px; /* Adjust as needed */
+    flex: 1 1 auto;
+}
+
+/* Table */
+.table-container {
+    flex: 2; /* Take more space */
+    max-height: 600px; /* Increase max height */
+    min-width: 600px; /* Make table wider */
+    overflow-y: auto;
+    border: 2px solid #0055a4;
+    background-color: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.25em; /* Larger font */
+}
+
+th, td {
+    border: 1.5px solid #0055a4;
+    padding: 16px 20px; /* More padding for bigger cells */
+    text-align: center;
+    font-size: 1.1em;
+}
+
+th {
+    font-size: 1.2em;
+    background-color: #d0e2ff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr.highlight-ok {
+    background-color: rgba(28, 171, 33, 0.3); /* Brighter green for pass */
+    transition: background-color 0.3s ease;
+    border-left: 4px solid #1ea322; /* Green left border for emphasis */
+}
+
+tbody tr.highlight-nok {
+    background-color: rgba(255, 25, 9, 0.3); /* Brighter red for fail */
+    transition: background-color 0.3s ease;
+    border-left: 4px solid #F44336; /* Red left border for emphasis */
+}
+
+/* Add hover effect to table rows */
+#screwDataTableBody tr:hover {
+    filter: brightness(0.95);
+}
+
+/* Ensure table looks clean and modern */
+.table-container table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.table-container th, 
+.table-container td {
+    padding: 8px 12px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.table-container th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Add subtle animation when rows get updated */
+@keyframes highlight-row {
+    0% { background-color: rgba(255, 193, 7, 0.5); }
+    100% { background-color: inherit; }
+}
+
+.status-changed {
+    animation: highlight-row 0.8s ease-out;
+}
+
+/* Smooth animations for data updates */
+@keyframes highlight-update {
+    0% { background-color: rgba(255, 193, 7, 0.5); }
+    100% { background-color: transparent; }
+}
+
+@keyframes fade-transition {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.cell-updating {
+    animation: highlight-update 0.8s ease-out;
+}
+
+.value-updating {
+    animation: highlight-update 0.6s ease-out;
+}
+
+.status-changed {
+    transition: background-color 0.5s ease-in-out;
+}
+
+.updated {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Make table rows fade in smoothly */
+#screwDataTableBody {
+    transition: opacity 0.2s ease-in-out;
+}
+
+#screwDataTableBody tr {
+    transition: background-color 0.2s ease-out;
+    will-change: background-color;
+}
+
+/* Keep marker transitions smooth */
+.screw-marker {
+    position: absolute;
+    width: 24px; /* Base size */
+    height: 24px; /* Base size */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px; /* Slightly smaller font */
+    font-weight: bold;
+    color: white;
+    cursor: default; /* Usually not clickable */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    z-index: 100;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Adjusted border */
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6); /* Adjusted shadow */
+
+    /* Centering based on top/left coordinates */
+    transform: translate(-50%, -50%);
+
+    /* Hardware acceleration */
+    backface-visibility: hidden;
+    will-change: transform, opacity, background-color, border-color;
+
+    /* Smooth transitions */
+    transition: background-color 0.25s ease-out,
+                border-color 0.25s ease-out,
+}
+
+/* Screw marker positions */
+#screw-1 {  left: 29%; top: 20%; position: absolute; }
+#screw-2 { left: 22%; top: 32%; position: absolute; }
+#screw-3 { left: 29%; top: 42%; position: absolute; }
+#screw-4 { left: 36%; top: 52%; position: absolute; }
+#screw-5 { left: 49%; top: 55%; position: absolute; }
+#screw-6 { left: 55%; top: 52%; position: absolute; }
+#screw-7 { left: 62%; top: 42%; position: absolute; }   
+#screw-8 { left: 62%; top: 52%; position: absolute; }
+#screw-9 { left: 62%; top: 58%; position: absolute; }
+#screw-10 { left: 55%; top: 58%; position: absolute; }
+#screw-11 { left: 49%; top: 62%; position: absolute; }
+#screw-12 { left: 42%; top: 55%; position: absolute; }
+#screw-13 { left: 29%; top: 58%; position: absolute; }
+#screw-14 { left: 22%; top: 58%; position: absolute; }
+#screw-15 { left: 22%; top: 42%; position: absolute; }
+#screw-16 { left: 30%; top: 15%; position: absolute; }
+#screw-17 { left: 35%; top: 20%; position: absolute; }
+#screw-18 { left: 42%; top: 20%; position: absolute; }
+#screw-19 { left: 62%; top: 20%; position: absolute; }
+
+/* Initial State: Translucent Violet */
+.screw-marker.initial {
+background-color: rgba(128, 0, 128, 0.7); /* Violet with 70% opacity */
+border-color: rgba(100, 0, 100, 0.8); /* Darker violet border */
+transform: translate(-50%, -50%) scale(1);
+opacity: 0.8;
+    border-color: rgba(100, 0, 100, 0.8); /* Darker violet border */
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+}
+
+/* Processing State: Yellow */
+.screw-marker.processing {
+    background-color: rgba(255, 193, 7, 0.9); /* Yellow (Amber) with 90% opacity */
+    border-color: rgba(204, 154, 6, 1);
+    transform: translate(-50%, -50%) scale(1.2); /* Slightly larger */
+    opacity: 1;
+    z-index: 110; /* Bring to front */
+    /* Use a specific animation for processing pulse */
+    animation: processing-pulse 1.2s infinite ease-in-out;
+}
+
+/* Success State: Green */
+.screw-marker.success {
+    background-color: rgba(76, 175, 80, 0.85); /* Green with 85% opacity */
+    border-color: rgba(56, 142, 60, 1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.6); /* Adjusted glow */
+}
+
+/* Fail State: Red */
+.screw-marker.fail {
+    background-color: rgba(244, 67, 54, 0.85); /* Red with 85% opacity */
+    border-color: rgba(198, 40, 40, 1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(244, 67, 54, 0.6); /* Adjusted glow */
+}
+
+/* Animation for processing state */
+@keyframes processing-pulse {
+    0% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+/* General pulse animation (if used elsewhere) */
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+/* Image Container - Ensure relative positioning */
+.image-container {
+    /* flex-basis: 400px;  */
+    border: 1px solid #ccc;
+    padding: 5px;
+    max-width: 100%;
+  position: relative;
+    height: auto;
+    background-color: #fff;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Important */
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: translateZ(0);
+    will-change: transform;
+}
+.sub-div{
+    border: 1px solid #ccc;
+    position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.hardware-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* Scales image down, preserves aspect ratio */
+    user-select: none; /* Prevent image selection */
+    -webkit-user-drag: none; /* Prevent image dragging */
+}
+.sub-div-dub-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+#screw-markers-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
+    overflow: hidden; /* Ensure markers don't overflow */
+}
+thead {
+    position:sticky;
+    top:0;
+}
+/* Add cycle label to image overlay */
+.cycle-overlay-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.cycle-overlay-label.present {
+    background-color: rgba(0, 85, 164, 0.8);
+}
+
+.cycle-overlay-label.previous {
+    background-color: rgba(255, 125, 0, 0.8);
+}
+
+/* Improved cycle navigation */
+.cycle-navigation {
+    display: none !important;
+}
+
+.history-warning {
+    display: none !important;
+}
+
+.cycle-counter {
+    display: none !important;
+}
+
+/* Style for minimal cycle navigation */
+.minimal-cycle-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.minimal-cycle-navigation small {
+    font-size: 0.8em;
+    color: #666;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.btn-cycle {
+    padding: 8px 15px;
+    border: 1px solid #0055a4;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #0055a4;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.15s ease-out;
+    will-change: transform, background-color, color;
+}
+
+.btn-cycle:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-cycle.active {
+    background-color: #0055a4;
+    color: white;
+}
+
+.btn-cycle:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Button active effect */
+.btn-cycle:active {
+    transform: translateY(1px);
+}
+
+/* Action Buttons Row */
+.action-buttons-row {
+    display: flex;
+    justify-content: flex-start; /* Align buttons to the start */
+    gap: 15px;
+    padding: 15px 20px;
+    background-color: #e9ecef; /* Light grey background */
+    border-top: 1px solid #ccc;
+    margin-top: auto;
+}
+
+.btn-action {
+    padding: 8px 15px;
+    border: 1px solid #0055a4;
+    border-radius: 4px;
+    background-color: #0055a4; /* Blue background */
+    color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-action:hover {
+    background-color: #003f7e; /* Darker blue */
+    border-color: #003f7e;
+}
+
+/* Style for the refresh button */
+.btn-refresh {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+    vertical-align: middle;
+}
+
+.btn-refresh:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-refresh:active {
+    transform: scale(0.95);
+}
+
+/* Add visual feedback for read-only inputs */
+input[readonly] {
+    background-color: #f9f9f9;
+    cursor: default;
+}
+
+/* Remove old styles no longer used */
+/* .info-details-row, .info-boxes-left, .screw-count-container, .screw-details-right, .controls-row, .status-indicator-box, .indicator-light are replaced or restyled */
+
+/* Screw marker base styles */
+.screw-marker {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    border: 2px solid;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Use hardware acceleration for smoother animations */
+.screw-marker, 
+input.value-updating {
+    will-change: transform, opacity, background-color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Fix for input fields to prevent flickering on update */
+input[readonly] {
+    transition: background-color 0.2s ease;
+    will-change: background-color;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+    .dashboard {
+        max-width: 98vw;
+        padding: 0 2vw;
+    }
+    .table-image-row {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 5px;
+    }
+    .nokia-logo {
+        margin: 0 0 10px 0;
+    }
+    .title {
+        font-size: 1.2em;
+    }
+    .resource-model-row {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+        padding: 8px 5px;
+    }
+    .id-controls-row {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 5px;
+    }
+    .controls-group {
+        justify-content: center;
+    }
+    .present-values-row {
+        padding: 10px 5px;
+    }
+    .present-values-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .action-buttons-row {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 5px;
+    }
+    .table-image-row {
+        flex-direction: column;
+        gap: 15px;
+        min-height: unset;
+        padding: 10px 5px;
+    }
+    .table-container, .image-container {
+        max-height: unset;
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 2px;
+    }
+    .dashboard {
+        max-width: 100vw;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+    .main-header {
+        flex-direction: column;
+        padding: 8px 2px;
+    }
+    .nokia-logo {
+        height: 28px;
+        margin: 0 0 6px 0;
+    }
+    .title {
+        font-size: 1em;
+    }
+    .resource-model-row {
+        flex-direction: column;
+        gap: 2px;
+        font-size: 0.85em;
+        padding: 6px 2px;
+    }
+    .id-controls-row {
+        flex-direction: column;
+        gap: 10px;
+        padding: 8px 2px;
+    }
+    .id-input-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .controls-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .present-values-row {
+        padding: 8px 2px;
+    }
+    .present-values-group {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .action-buttons-row {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 2px;
+    }
+    .table-image-row {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 2px;
+    }
+    .table-container, .image-container {
+        min-height: 120px;
+        padding: 2px;
+    }
+    .table-container th, .table-container td {
+        padding: 4px 4px;
+        font-size: 0.75em;
+    }
+    .btn-control, .btn-action, .btn-cycle {
+        font-size: 0.85em;
+        padding: 6px 10px;
+    }
+    .input-group label {
+        font-size: 0.8em;
+        padding: 4px 6px;
+    }
+    .input-group input[type="text"],
+    .input-group input[type="number"] {
+        min-width: 80px;
+        font-size: 0.8em;
+        padding: 3px 4px;
+    }
+    .hardware-image {
+        max-width: 100%;
+        max-height: 180px;
+    }
+    .cycle-overlay-label {
+        font-size: 0.7em;
+        padding: 2px 5px;
+    }
+    .screw-marker {
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+    }
+}
